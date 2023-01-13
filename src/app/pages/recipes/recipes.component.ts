@@ -52,6 +52,7 @@ export class RecipesComponent implements OnInit {
     };
   }
   openRecipe(recipe: TRecipe) {
+    // TODO: Open Recipe in a modal
     console.log(recipe);
   }
 }
