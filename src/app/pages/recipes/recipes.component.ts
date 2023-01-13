@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { RecipesService } from './recipes.service';
 type TRecipe = {
   Name: string;
@@ -18,7 +19,12 @@ export class RecipesComponent implements OnInit {
   recipes: any = [];
   totalRecords: number = 0;
   pageLength: number = 2;
-  constructor(private readonly recipesService: RecipesService) {}
+  selectedRecipe!: TRecipe;
+  modalRef!: BsModalRef;
+  constructor(
+    private readonly recipesService: RecipesService,
+    private readonly modalService: BsModalService
+  ) {}
 
   ngOnInit(): void {
     let lastPage = 0;
@@ -51,7 +57,7 @@ export class RecipesComponent implements OnInit {
       },
     };
   }
-  openRecipe(recipe: TRecipe) {
-    console.log(recipe);
+  openRecipe(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template);
   }
 }

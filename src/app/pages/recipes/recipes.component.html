@@ -1,3 +1,52 @@
+<ng-template #template>
+  <div class="modal-header">
+    <div class="row"></div>
+    <h4 class="modal-title pull-left">{{ selectedRecipe.Name }} recipe</h4>
+    <button
+      type="button"
+      class="close pull-right"
+      aria-label="Close"
+      (click)="modalRef.hide()"
+    >
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="row">
+      <div class="col-md-12">
+        <b>By: {{ selectedRecipe.Author }}</b>
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col-md-12">Description: {{ selectedRecipe.Description }}</div>
+    </div>
+    <div class="row mt-3">
+      <div class="col-md-12">
+        <b>Ingredients:</b>
+        <ul>
+          <li *ngFor="let ingredient of selectedRecipe.Ingredients">
+            {{ ingredient }}
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col-md-12">
+        <b>Steps:</b>
+        <ol>
+          <li *ngFor="let step of selectedRecipe.Method">
+            {{ step }}
+          </li>
+        </ol>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-default" (click)="modalRef.hide()">
+      Close
+    </button>
+  </div>
+</ng-template>
 <div class="container">
   <div class="row">
     <div class="col-md-12">
@@ -16,13 +65,16 @@
             </tr>
           </thead>
           <tbody>
-            <tr
-              *ngFor="let recipe of recipes"
-              class="pointer"
-              (click)="openRecipe(recipe)"
-            >
-              <td>{{ recipe.Name }}</td>
-              <td>{{ recipe.url }}</td>
+            <tr *ngFor="let recipe of recipes">
+              <td
+                (click)="selectedRecipe = recipe; openRecipe(template)"
+                class="pointer"
+              >
+                {{ recipe.Name }}
+              </td>
+              <td>
+                <a href="{{ recipe.url }}" target="_blank">{{ recipe.url }}</a>
+              </td>
               <td>{{ recipe.Description }}</td>
               <td>{{ recipe.Author }}</td>
             </tr>
