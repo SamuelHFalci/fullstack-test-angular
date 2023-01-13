@@ -4,33 +4,50 @@
       <h1 class="text-center">Fullstack Test - Angular + NodeJs</h1>
       <h2>Instructions:</h2>
       <ol>
-        <li>
-          Clone this
-          <a href="https://github.com/SamuelHFalci/fullstack-test-angular"
-            >repository</a
-          >
-          (<b
-            >git clone
-            https://github.com/SamuelHFalci/fullstack-test-angular.git</b
-          >) and create a branch with your own name. (<b
-            >git checkout -b your-name</b
-          >)
-        </li>
-        <li>You will work on pages/recipes component</li>
+        <li>You will work on the pages/recipes component</li>
         <li>You can visualize your work on <a href="/recipes">this link</a></li>
         <li>
           The main goal is to feed a bootstrap table with data comming from the
           api
         </li>
         <li>
-          The api is hosted on the api folder and you can adjust the code for
-          matching the requirements
+          Clone the api project with the command
+          <b
+            >git clone
+            https://github.com/SamuelHFalci/fullstack-test-node.git</b
+          >
         </li>
         <li>
-          The data pagination must be implemented on both, frontend and backend
-          side, using page size and fetching just the data it's needed
+          Install the backend dependencies with <b>yarn</b> or
+          <b>npm i</b> command
         </li>
-        <li>The table should look like the exemple below.</li>
+        <li>
+          Run the backend with the command <b>yarn start</b> or
+          <b>npm run start</b>
+        </li>
+        <h4>Backend job:</h4>
+        <li>
+          Notice that the DataTable perform a get request with query params to
+          the backend api
+        </li>
+        <li>
+          You have to implement the pagination on the api side using the query
+          params
+        </li>
+        <li>
+          Hint: There is a class for handling database stuff on the backend api
+        </li>
+        <h4>Frontend job:</h4>
+        <li>
+          After retrieve the paginated data correctly from the backend make it
+          possible to click on the recipe name and open a modal with the recipe
+          Name, url, description, author, ingredients and steps
+        </li>
+        <li>Hint: You can use the ngx-bootstrap modal component to do this</li>
+        <li>
+          Make it possible for click on the recipe url and open the url in a new
+          browser tab
+        </li>
         <div class="mt-5">
           <table
             datatable
@@ -46,11 +63,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr
-                *ngFor="let recipe of recipes"
-                class="pointer"
-                (click)="openRecipe(recipe)"
-              >
+              <tr *ngFor="let recipe of recipes" class="pointer">
                 <td>{{ recipe.Name }}</td>
                 <td>{{ recipe.url }}</td>
                 <td>{{ recipe.Description }}</td>

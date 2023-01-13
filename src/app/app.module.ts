@@ -8,7 +8,7 @@ import { RecipesComponent } from './pages/recipes/recipes.component';
 import { HomeComponent } from './pages/home/home.component';
 import { DataTablesModule } from 'angular-datatables';
 import { HttpClientModule } from '@angular/common/http';
-
+import { BsModalService, ModalModule } from 'ngx-bootstrap/modal';
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'recipes', component: RecipesComponent },
@@ -22,8 +22,9 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     DataTablesModule,
     HttpClientModule,
+    ModalModule,
   ],
-  providers: [],
+  providers: [BsModalService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

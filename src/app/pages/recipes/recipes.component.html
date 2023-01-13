@@ -1,1 +1,34 @@
-<p>recipes works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="mt-5">
+        <table
+          datatable
+          [dtOptions]="dtOptions"
+          class="table table-success table-striped table-hover table-bordered"
+        >
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Url</th>
+              <th>Description</th>
+              <th>Author</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              *ngFor="let recipe of recipes"
+              class="pointer"
+              (click)="openRecipe(recipe)"
+            >
+              <td>{{ recipe.Name }}</td>
+              <td>{{ recipe.url }}</td>
+              <td>{{ recipe.Description }}</td>
+              <td>{{ recipe.Author }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

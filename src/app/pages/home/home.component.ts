@@ -1,13 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { RecipesService } from '../recipes/recipes.service';
-type TRecipe = {
-  Name: string;
-  url: string;
-  Description: string;
-  Author: string;
-  Ingredients: string[];
-  Method: string[];
-};
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -50,8 +42,5 @@ export class HomeComponent implements OnInit {
           });
       },
     };
-  }
-  openRecipe(recipe: TRecipe) {
-    console.log(recipe);
   }
 }
