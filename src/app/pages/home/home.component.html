@@ -1,0 +1,69 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1 class="text-center">Fullstack Test - Angular + NodeJs</h1>
+      <h2>Instructions:</h2>
+      <ol>
+        <li>
+          Clone this
+          <a href="https://github.com/SamuelHFalci/fullstack-test-angular"
+            >repository</a
+          >
+          (<b
+            >git clone
+            https://github.com/SamuelHFalci/fullstack-test-angular.git</b
+          >) and create a branch with your own name. (<b
+            >git checkout -b your-name</b
+          >)
+        </li>
+        <li>You will work on pages/recipes component</li>
+        <li>You can visualize your work on <a href="/recipes">this link</a></li>
+        <li>
+          The main goal is to feed a bootstrap table with data comming from the
+          api
+        </li>
+        <li>
+          The api is hosted on the api folder and you can adjust the code for
+          matching the requirements
+        </li>
+        <li>
+          The data pagination must be implemented on both, frontend and backend
+          side, using page size and fetching just the data it's needed
+        </li>
+        <li>The table should look like the exemple below.</li>
+        <div class="mt-5">
+          <table
+            datatable
+            [dtOptions]="dtOptions"
+            class="table table-success table-striped table-hover table-bordered"
+          >
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Url</th>
+                <th>Description</th>
+                <th>Author</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr
+                *ngFor="let recipe of recipes"
+                class="pointer"
+                (click)="openRecipe(recipe)"
+              >
+                <td>{{ recipe.Name }}</td>
+                <td>{{ recipe.url }}</td>
+                <td>{{ recipe.Description }}</td>
+                <td>{{ recipe.Author }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <li>
+          Notice that the data is hardcoded on the example and the pagination is
+          being done just on the frontend side.
+        </li>
+      </ol>
+    </div>
+  </div>
+</div>
