@@ -58,6 +58,7 @@ export class RecipesComponent implements OnInit {
     };
   }
   openRecipe(template: TemplateRef<any>) {
+    // TODO: Open Recipe in a modal
     this.modalRef = this.modalService.show(template);
   }
 }

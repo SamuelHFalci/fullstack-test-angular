@@ -29,7 +29,7 @@ export class HomeComponent implements OnInit {
         lastPage = dataTablesParameters.start; // Note :  dataTablesParameters.start = page count * table length
         lastSearchText = dataTablesParameters.search.value;
         this.recipesService
-          .getRecipes(dataTablesParameters)
+          .getRecipesPaginated(dataTablesParameters)
           .toPromise()
           .then((res: any) => {
             this.recipes = res.data;

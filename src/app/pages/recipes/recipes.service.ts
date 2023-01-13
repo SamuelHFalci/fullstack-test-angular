@@ -13,4 +13,13 @@ export class RecipesService {
       params: query,
     });
   }
+  getRecipesPaginated(query: any) {
+    const baseUrl = getApiBaseUrl();
+    return this.httpClient.get(
+      'https://fullstack-test-node-staging.vercel.app/api/recipes',
+      {
+        params: query,
+      }
+    );
+  }
 }
